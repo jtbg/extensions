@@ -26,7 +26,7 @@
   "path-measure": "https://raw.githubusercontent.com/Kaisky1911/obr-extension-path-measure/main/store.md",
   "pdf-reader": "https://www.battle-system.com/owlbear/pdfd-docs/store.md",
   "prefabs": "https://raw.githubusercontent.com/owlbear-rodeo/prefabs/main/docs/store.md",
-  "pretty-sordid": "https://raw.githubusercontent.com/SeamusFinlayson/initiative-tracker/main/docs/store.md"
+  "pretty-sordid": "https://raw.githubusercontent.com/SeamusFinlayson/initiative-tracker/main/docs/store.md",
   "rumble": "https://www.battle-system.com/owlbear/rumble-docs/store.md",
   "scry": "https://www.battle-system.com/owlbear/scry-docs/store.md",
   "sd-character-sheet": "https://raw.githubusercontent.com/maxpaulus43/owlbear-shadowdark-character-sheet/main/docs/store.md",
@@ -38,5 +38,5 @@
   "token-counter": "https://raw.githubusercontent.com/maxpaulus43/owlbear_token_counter/main/docs/store.md",
   "tracks": "https://raw.githubusercontent.com/hypergig/obr-tracks/main/docs/store.md",
   "ultimate-story": "https://fabula-ultima-character-extension.onrender.com/store.md",
-  "witchdice": "https://witchdice.com/owlbear_ext/store.md",
+  "witchdice": "https://witchdice.com/owlbear_ext/store.md"
 }
