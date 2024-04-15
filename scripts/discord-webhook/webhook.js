@@ -2,22 +2,22 @@ import fetch from "node-fetch";
 
 import { getExtensionDetails } from "../common/extensionDetails.js";
 
-function createDiscordEmbed(id, title, description, url, image, author, tags) {
+function createDiscordEmbed(extension) {
   const embed = {
     color: 0xbb99ff,
-    title,
-    description,
-    url: encodeURI(`https://extensions.owlbear.rodeo/${id}`),
+    title: extension.title,
+    description: extension.description,
+    url: encodeURI(`https://extensions.owlbear.rodeo/${extension.id}`),
     image: {
-      url: image,
+      url: extension.image,
     },
     author: {
-      name: author,
+      name: extension.author,
     },
     fields: [
       {
         name: "",
-        value: `${tags.map((tag) => "`" + tag + "`").join("   ")}`,
+        value: `${extension.tags.map((tag) => "`" + tag + "`").join("   ")}`,
         inline: true,
       },
     ],
@@ -26,24 +26,8 @@ function createDiscordEmbed(id, title, description, url, image, author, tags) {
   return embed;
 }
 
-function createDiscordWebhookPayload(
-  id,
-  title,
-  description,
-  url,
-  image,
-  author,
-  tags
-) {
-  const embed = createDiscordEmbed(
-    id,
-    title,
-    description,
-    url,
-    image,
-    author,
-    tags
-  );
+function createDiscordWebhookPayload(extension) {
+  const embed = createDiscordEmbed(extension);
 
   const payload = {
     content: ":flame: New Extension Released :flame:",
@@ -56,15 +40,10 @@ function createDiscordWebhookPayload(
 export async function sendDiscordWebhook() {
   const { id, data } = await getExtensionDetails();
 
-  const payload = createDiscordWebhookPayload(
+  const payload = createDiscordWebhookPayload({
     id,
-    data.title,
-    data.description,
-    data.url,
-    data.image,
-    data.author,
-    data.tags
-  );
+    ...data,
+  });
 
   const response = await fetch(process.env.DISCORD_WEBHOOK, {
     method: "POST",
